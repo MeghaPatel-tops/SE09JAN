@@ -1,0 +1,75 @@
+create DATABASE SE19JAN;
+
+use SE19JAN
+
+CREATE TABLE users( uid int PRIMARY KEY AUTO_INCREMENT,username varchar(100),email varchar(100),contactno int);//Strong entity
+CREATE table testtable(testdata varchar(20),description varchar(200));//week entity
+DESC employee;
+
+ALTER TABLE users add COLUMN address text;
+
+ALTER TABLE users CHANGE username  uname varchar(200);
+
+ALTER TABLE users DROP COLUMN address;
+
+
+DROP TABLE users;
+
+TRUNCATE TABLE employee
+
+
+
+
+==========================DML========================
+
+Insert:=>
+insert into users(username,email,contactno)VALUES("Megha","m@gmail.com",9099999);
+
+INSERT into testtable values("test2","test desc");
+
+insert into testtable(testdata) VALUE("test2");
+
+Update=>
+UPDATE users SET username ="Megha Patel " where uid=1;
+
+Delete:=>
+
+DELETE from users where uid=1
+
+
+
+========================DQL==============================
+
+select:
+SELECT * FROM `employee` 
+
+SELECT firstname,LastName,email FROM `employee` WHERE 1
+
+SELECT * FROM `employee` WHERE departmentid=1;
+
+SELECT DISTINCT(CUST_CITY) FROM customer
+
+SELECT * FROM `employee`  order by FirstName asc;
+
+SELECT * FROM `employee`  order by FirstName desc;
+
+SELECT * FROM `employee` WHERE employeeid not in(1,3,5,7,9)
+
+SELECT * FROM `employee` WHERE employeeid in(1,3,5,7,9)
+
+SELECT * FROM `employee` WHERE departmentid= 1 and Salary >=75000;
+
+SELECT * FROM `employee` WHERE departmentid= 1 or Salary >=75000;
+
+SELECT * FROM `employee` WHERE DepartmentID != 1
+
+SELECT * FROM `employee` WHERE HireDate BETWEEN "2019-01-01" and "2021-12-31"
+
+SELECT * FROM `employee` WHERE  Salary BETWEEN 75000 and 95000
+
+SELECT * FROM `employee` WHERE firstname like "c%";//search from start
+
+SELECT * FROM `employee` WHERE firstname like "%e";//search from end
+
+
+SELECT * FROM `employee` WHERE firstname like "%e%";////search inbetween

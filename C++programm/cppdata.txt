@@ -1,0 +1,2 @@
+SE 09 batch file created
+ Welcome to cpp tutorials
