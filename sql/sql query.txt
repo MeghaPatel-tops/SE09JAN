@@ -73,3 +73,52 @@ SELECT * FROM `employee` WHERE firstname like "%e";//search from end
 
 
 SELECT * FROM `employee` WHERE firstname like "%e%";////search inbetween
+
+SELECT * FROM `employee` WHERE salary >=75000 AND DepartmentID=1;
+
+SELECT sum(Salary) as totalsalary ,DepartmentID FROM `employee` GROUP BY DepartmentID;
+
+SELECT count(CUST_CODE) as totalcustomer,CUST_CITY FROM `customer` GROUP by CUST_CITY;
+
+SELECT min(Salary) as minsalaray ,DepartmentID FROM `employee` GROUP BY DepartmentID;
+
+SELECT sum(Salary) as totalsalary ,DepartmentID FROM `employee` GROUP BY DepartmentID HAVING totalsalary >=85000;
+
+CREATE INDEX emailindex on users (email)
+
+drop INDEX emailindex on users
+
+
+CREATE VIEW userview as (SELECT EmployeeID,FirstName,Email FROM employee)
+
+SELECT * FROM `userview` WHERE 1
+
+SELECT * FROM `employee` join department on employee.DepartmentID = department.DepartmentID
+
+SELECT * FROM `employee` left join department on employee.DepartmentID = department.DepartmentID
+
+SELECT * FROM `employee` right join department on employee.DepartmentID = department.DepartmentID
+
+
+//=========================================
+CREATE PROCEDURE empProcedure()
+SELECT * from employee;
+
+
+CALL `empProcedure`();
+
+
+CREATE PROCEDURE getEmpById( id int )
+SELECT * from employee WHERE employee_id=id
+
+SET @p0='1'; CALL `getEmpById`(@p0);
+
+
+START TRANSACTION;
+DELETE from users where uid=2;
+COMMIT;
+
+
+START TRANSACTION;
+DELETE from users where uid=4;
+ROLLBACK;

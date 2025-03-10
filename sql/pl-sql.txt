@@ -1,0 +1,74 @@
+DECLARE
+  age number := 18 ;
+BEGIN 
+  if age >=18 then
+      dbms_output.put_line('yes');
+  else
+      dbms_output.put_line('no');
+  end if;  
+END;
+/
+
+
+=====================else if ladder===========================
+DECLARE
+  mark1 number :=70;
+  mark2 number:=76;
+  mark3 number:=45;
+  total number;
+  avg1 number;
+BEGIN 
+    total := mark1 + mark2 +mark3;
+    avg1 := total/3;
+    DBMS_OUTPUT.PUT_LINE('total: ' || total || ' avg: ' ||avg1);
+    case
+      when avg1 >= 70 then
+           DBMS_OUTPUT.PUT_LINE('first class');
+      when avg1 >= 60 AND avg1 < 70 then 
+           DBMS_OUTPUT.PUT_LINE('second class');
+      end case;     
+           
+END;
+/
+
+============================Switch==================
+
+DECLARE
+
+  avg1 char;
+BEGIN 
+  
+    avg1 := 'B';
+    case
+      when avg1 = 'A' then 
+           DBMS_OUTPUT.PUT_LINE('first class');
+      when avg1='B' then 
+           DBMS_OUTPUT.PUT_LINE('second class');
+      end case;     
+           
+END;
+/
+
+
+======================while=======================
+DECLARE
+
+  i number;
+BEGIN 
+  
+    i := 1;--init
+    while i<= 5 loop
+       DBMS_OUTPUT.PUT_LINE('i: ' || i);
+       i:= i +1;
+    end loop;       
+END;
+/
+================for===================
+DECLARE
+  i number;
+BEGIN 
+  for i in 1..10 loop
+    DBMS_OUTPUT.PUT_LINE('i: ' || i);
+  end loop;
+END;
+/
